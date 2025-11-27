@@ -45,7 +45,7 @@ Open Cursor and hit :point_right:**File**, :point_right:**Preferences**, :point_
 
 # Tests:
 
-- Drag both general_test_runner.prompt.md and trainning_test.prompt.md to typing area in Cursor. Wait for the test cases to be designed and codified into spec.ts files. Type "Execute trainning_test_web.prompt.md" and hit :arrow_up:. After the execution is finished, input different parameters so the other test cases can be generated. 
+- When creating automated web test, drag both general_web_test_runner.prompt.md and trainning_web_est.prompt.md to the typing area in Cursor. Wait for the test cases to be designed and codified into spec.ts files. Type "Execute trainning_test_web.prompt.md" and hit :arrow_up:. After the execution is finished, input different parameters so the other test cases can be generated. Use equivalents files for automated api tests. 
 - Execute ```npx playwright test --ui``` to run your tests with UI Mode. 
 - Execute ```npx playwright test``` to execute playwright in headless mode.
 - Hit :point_right:**Testing** button on left side bar in VSC and choose the tests you want to execute.
