@@ -23,8 +23,7 @@
 - Start only **after all manual steps have been completed successfully**  
 - Implement the Playwright + TypeScript test based on the **MCP execution history**  
 - Use knowledge obtained from the observed HTML structure  
-- Save the file in the **`tests\web`** directory for web tests 
-- Save the file in the **`tests\api`** directory for web tests   
+- Save the file in the **`tests\web`** directory for web tests    
 - Run the created test  
 - **Iterate and adjust until the test passes**
 
@@ -37,11 +36,6 @@
 - **3rd:** `getByPlaceholder()` when no label is available  
 - **4th:** `getByText()` for visible and stable text  
 - **5th:** `getByTestId()` only as a last resort 
-- Another if necessary
-
-### Assertion for API tests
-
-- **1st:** `toEqual()` with accessible names 
 - Another if necessary
 
 ### Data Generation
@@ -109,12 +103,41 @@
 
 ## 🗂️ Organization
 
-- Save web tests in **`tests\web`**  
-- Save api tests in **`tests\api`**  
+- Save web tests in **`tests\web`** 
 - File naming for test suites: `<general_scope>_<mean>.spec.ts` (e.g., `users_web.spec.ts`)  
-- Test naming (with 3 tags) inside the suite: `<test_scope> via <mean> <TAG1> <TAG2> <TAG3>`  
-  - Example: `Creates a new user account via WEB @WEB @BASIC @FULL`
-  - Example: `Creates a new user account via API @API @NEGATIVE`  
+- Test naming (with 3 tags) inside the suite: `<TC_NUMBER> - <test_scope> via <mean> <TAG1> <TAG2> <TAG3>`  
+  - Example: `TC400 - Creates a new user account via WEB @WEB @BASIC @FULL` 
+
+### Test Case Numbering (TC Numbering):
+
+All tests must be numbered with **TC** prefix followed by a number with **interval of 10** between each test case (TC001, TC010, TC020, TC030, etc.) to allow insertion of new tests in the future.
+
+**Numbering order for WEB tests (continues from API tests):**
+
+1. **health_web.spec.ts**: Starts at **TC390** (continues from notes_api which ends at TC380)
+   - TC390: Health check test
+
+2. **users_web.spec.ts**: Starts at **TC400** (continues from health_web)
+   - TC400, TC410, TC420... TC540 (15 tests total)
+
+3. **notes_web.spec.ts**: Starts at **TC550** (continues from users_web)
+   - TC550, TC560, TC570... TC630 (9 tests total)
+
+**Numbering order for API_AND_WEB tests (continues from WEB tests):**
+
+4. **users_api_and_web.spec.ts**: Starts at **TC640** (continues from notes_web)
+   - TC640, TC650, TC660... TC750 (12 tests total)
+
+5. **notes_api_and_web.spec.ts**: Starts at **TC760** (continues from users_api_and_web)
+   - TC760, TC770, TC780... TC840 (9 tests total)
+
+**Important:**
+- Each test case number must be **incremented by 10** from the previous test
+- This allows space for inserting new tests between existing ones
+- Never skip numbers or use non-multiples of 10
+- Always continue the sequence from the last test case number in the previous file
+- The complete sequence is: API tests → WEB tests → API_AND_WEB tests
+
 - One file per general scope, with similar-scope tests grouped inside  
 - Clean and well-documented code  
 
@@ -129,4 +152,4 @@
 - **NEVER** add unnecessary timeouts  
 - **NEVER** write code before the full manual exploration  
 - **ALWAYS** execute and iterate until the test passes  
-
+- Negative scenarios should be created as well 

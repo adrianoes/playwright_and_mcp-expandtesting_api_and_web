@@ -4,6 +4,5 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 commiting.txt
-tests_backups
 # Playwright
 /playwright/.auth/
