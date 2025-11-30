@@ -18,7 +18,8 @@ API and WEB testing in [expandtesting](https://practice.expandtesting.com/notes/
   - :white_check_mark: Add "Open with Cursor" action to Windows Explorer file context menu. 
   - :white_check_mark: Add "Open with Cursor" action to Windows Explorer directory context menu.
 Check then both to add both options in context menu.
-Open Cursor and hit :point_right:**File**, :point_right:**Preferences**, :point_right:**Cursor Settings**, :point_right:**Add Custom MCP** and paste the below configuration: 
+Open Cursor and hit :point_right:**File**, :point_right:**Preferences**, :point_right:**Cursor Settings**, :point_right:**Add Custom MCP** and paste the below configuration:
+
     ```
     {
       "mcpServers": {
